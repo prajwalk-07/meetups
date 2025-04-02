@@ -2,7 +2,8 @@ import { Rubik } from "next/font/google";
 import './globals.css';
 import { AuthProvider } from "./context/AuthContext";
 import Navigations from "./components/Navigations";
-
+import { Suspense } from "react";
+import Loading from "./loading";
 const rubik = Rubik({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"], // Include the weights you need
@@ -38,9 +39,11 @@ export default function RootLayout({ children }) {
       >
         <AuthProvider>
           <Navigations />
+          <Suspense fallback={<Loading />}>
           <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8">
             {children}
           </main>
+          </Suspense>
         </AuthProvider>
       </body>
     </html>

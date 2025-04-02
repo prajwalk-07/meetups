@@ -26,6 +26,7 @@ useEffect(()=>{
     router.push('/')
   }
 })
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-black">
     <div className="w-full max-w-md bg-black border border-gray-800 rounded-lg shadow-lg p-6 text-white">

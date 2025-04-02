@@ -37,7 +37,7 @@ export const createMeetUp = async (userId, formData) => {
 export async function getMeetups() {
   try {
     await connectToDB();
-    const meetups = await Meetup.find().populate("user").lean(); // Keep using .lean()
+    const meetups = await Meetup.find().populate("user").sort({ createdAt: -1 }).lean(); // Keep using .lean()
     return JSON.parse(JSON.stringify(meetups)); 
   } catch (err) {
     console.log("Fetching data failed", err);
@@ -68,7 +68,7 @@ export async function deleteMeetup(id,userId) {
 export const  getUserMeetups=async(userId)=>{
   try{
     await connectToDB()
-    const meetups=await Meetup.find({user:userId}).populate("user").lean()
+    const meetups=await Meetup.find({user:userId}).populate("user").sort({ createdAt: -1 }).lean()
     return JSON.parse(JSON.stringify(meetups))
   }catch(err){
     console.log(err)

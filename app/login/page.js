@@ -61,7 +61,7 @@ export default function LoginForm() {
         </CardContent>
         <CardFooter className="flex justify-center">
           <p className="text-sm text-muted-foreground">
-            Don't have an account?{' '}
+            Don&apos;t have an account
             <a href="/signup" className="underline hover:text-primary">
               <Button className='bg-gray-100/50 px-6 py-1 m-2'>Sign up</Button>
             </a>
